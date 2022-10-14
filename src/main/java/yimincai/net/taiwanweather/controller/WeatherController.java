@@ -9,12 +9,8 @@ import yimincai.net.taiwanweather.service.WeatherService;
 @RequestMapping("api/weather")
 public class WeatherController {
 
-    private final WeatherService weatherService;
-
     @Autowired
-    public  WeatherController(WeatherService weatherService){
-        this.weatherService = weatherService;
-    }
+    private WeatherService weatherService;
 
     @ResponseBody
     @GetMapping(value ="forecast", produces = "application/json;charset=UTF-8")

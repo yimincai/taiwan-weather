@@ -14,7 +14,7 @@ import java.util.Objects;
 public class WeatherService {
     private OkHttpClient okHttpClient;
     private Response response;
-    private String APIkey = "your_api_key";
+    private String APIkey = "CWB-18DF70B5-67BF-4345-94B0-EB5AC35F7490";
     private String baseUrl = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001";
 
     // Getting data from open api
