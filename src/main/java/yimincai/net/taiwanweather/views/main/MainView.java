@@ -69,7 +69,7 @@ public class MainView extends HorizontalLayout {
                     List<String> minT = parameterData.get("MinT");
                     List<String> maxT = parameterData.get("MaxT");
                     List<String> ci = parameterData.get("CI");
-                    forecastsList.add(new Forecast(startTime.get(i) + " ~ " + endTime.get(i), wx.get(i), pop.get(i), minT.get(i), maxT.get(i), ci.get(i)));
+                    forecastsList.add(new Forecast(startTime.get(i) + " ~ " + endTime.get(i), wx.get(i), pop.get(i) + "%", minT.get(i) + "°C", maxT.get(i) + "°C", ci.get(i)));
                 }
 
             }
