@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 告知 Spring boot 此 class 為一個 Service
  * 必需標註為 @Service 否則 Spring IoC 掃描時不會註冊此依賴 會導致 @Autowired 時找不到Service
  */
 @Service
