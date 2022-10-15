@@ -21,7 +21,7 @@ public class WeatherController {
      * 定義此為 HTTP 請求方法中的 Get 方法
      * value 定義 API 路徑並與 @RequestMapping 組合
      * produces 定義回傳的 Content-Type 為 application/json ，charset=UTF-8 用於解決回傳的資料中若有中文時的亂碼問題
-     * @RequestParam String city 代表此 Get 方法接受 Param 方式的參數輸入
+     * @RequestParam String city 方法接受 Param 方式的參數輸入
      * 例如在此為 ?city=我的城市名稱 呼叫時就可以透過 String city 拿到 "我的城市名稱"
      * 綜上所述 因此要呼叫此方法時 路徑應為 http://127.0.0.1:8080/api/weather/forecast?city=我的城市名稱
      */
