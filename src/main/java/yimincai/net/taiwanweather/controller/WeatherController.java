@@ -15,7 +15,9 @@ public class WeatherController {
     @ResponseBody
     @GetMapping(value ="forecast", produces = "application/json;charset=UTF-8")
     public String getCityForecast(@RequestParam String city){
-        return weatherService.getWeatherForecast(city).toString();
+        String result = weatherService.getWeatherForecast(city).toString();
+        System.out.println(result);
+        return  result;
     }
 
 }

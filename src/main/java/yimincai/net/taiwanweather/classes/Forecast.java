@@ -1,4 +1,4 @@
-package yimincai.net.taiwanweather;
+package yimincai.net.taiwanweather.classes;
 
 public class Forecast {
     private String time;

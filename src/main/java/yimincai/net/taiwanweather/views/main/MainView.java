@@ -1,21 +1,17 @@
 package yimincai.net.taiwanweather.views.main;
 
 import com.jayway.jsonpath.JsonPath;
-import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.theme.Theme;
 import org.springframework.beans.factory.annotation.Autowired;
-import yimincai.net.taiwanweather.Forecast;
+import yimincai.net.taiwanweather.classes.Forecast;
 import yimincai.net.taiwanweather.service.CityService;
 import yimincai.net.taiwanweather.service.WeatherService;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +22,9 @@ public class MainView extends VerticalLayout {
 
     @Autowired
     private WeatherService weatherService;
+
+    @Autowired
+    private CityService cityService;
     private final Grid<Forecast> grid = new Grid<>(Forecast.class, false);
     private Select<String> select;
     private List<String> parameter;
@@ -36,14 +35,14 @@ public class MainView extends VerticalLayout {
     public MainView() {
         setMargin(true);
         setUpSelector();
-        setUpTable();
+//        setUpTable();
     }
 
 
     public void setUpSelector() {
         select = new Select<>();
         select.setLabel("City");
-        List<String> cityList = CityService.getCityList();
+        List<String> cityList = cityService.getCityList();
         select.setItems(cityList);
         add(select);
     }
@@ -62,6 +61,7 @@ public class MainView extends VerticalLayout {
 
         select.addValueChangeListener(e -> {
             String jsonString = weatherService.getWeatherForecast(select.getValue()).toString();
+            Notification.show(jsonString);
             List<String> weatherElement = JsonPath.read(jsonString, "$.records.location[*].weatherElement[*]");
             List<String> elementName = JsonPath.read(jsonString, "$.records.location[*].weatherElement[*].elementName");
             startTime = JsonPath.read(jsonString, "$.records.location[*].weatherElement[0].time[*].startTime");
