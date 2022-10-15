@@ -21,7 +21,7 @@ public class WeatherService {
     // http client 回傳的物件
     private Response response;
     // Open API 的使用金鑰 請記得替換成你自己的鑰匙
-    private String API_KEY = "CWB-18DF70B5-67BF-4345-94B0-EB5AC35F7490";
+    private String API_KEY = "YOUR_API_KEY";
     // 請求預測的 Open API 的基本網址 後續會與 API_KEY 組合成請求的 URL
     private String baseUrl = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001";
 
