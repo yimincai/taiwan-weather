@@ -9,9 +9,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import yimincai.net.taiwanweather.classes.Forecast;
-import yimincai.net.taiwanweather.service.CityService;
 import yimincai.net.taiwanweather.service.WeatherService;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,10 +26,6 @@ public class MainView extends VerticalLayout {
     // WeatherService 透過 @Autowired 在 Spring IoC 掃描時用來依賴注入物件 並在此取得並使用
     @Autowired
     private WeatherService weatherService;
-
-    // CityService 透過 @Autowired 在 Spring IoC 掃描時用來依賴注入物件 並在此取得並使用
-    @Autowired
-    private CityService cityService;
 
     // 前端畫面上用來呈現資料的表格
     private final Grid<Forecast> gridTable = new Grid<>(Forecast.class, false);
@@ -58,8 +54,8 @@ public class MainView extends VerticalLayout {
         selector = new Select<>();
         // 設定物件左上角顯示的選擇器名稱
         selector.setLabel("City");
-        // 從 cityService 去得所有可選的城市名稱清單
-        List<String> cityList = cityService.getCityList();
+        // // 定義所有可選的城市清單
+        List<String> cityList = Arrays.asList("臺北市", "新北市", "桃園市", "臺中市", "臺南市", "高雄市", "宜蘭縣", "新竹縣", "苗栗縣", "彰化縣", "南投縣", "雲林縣", "嘉義縣", "屏東縣", "花蓮縣", "臺東縣", "澎湖縣", "基隆市", "新竹市", "嘉義市");
         // 將清單放進選擇器內
         selector.setItems(cityList);
         // 在畫面上新增此選擇器
@@ -86,7 +82,7 @@ public class MainView extends VerticalLayout {
         // 在畫面上新增此表格
         add(gridTable);
 
-        /**
+        /*
          * 建立一個 selector 監聽事件
          * 當 select 的 value 被改變時觸發此事件
          * 觸發時透過選擇器取得使用者選取的城市名稱 再透過 weatherService 取得對應城市的天氣預報

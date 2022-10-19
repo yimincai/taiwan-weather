@@ -1,6 +1,5 @@
 package yimincai.net.taiwanweather.controller;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import yimincai.net.taiwanweather.service.WeatherService;
@@ -17,7 +16,7 @@ public class WeatherController {
 
     // @RequestBody 是作用在形參列表上 用於將前端傳送過來固定格式的資料(json or xml)封裝為對應的 JavaBean 物件
     @ResponseBody
-    /**
+    /*
      * 定義此為 HTTP 請求方法中的 Get 方法
      * value 定義 API 路徑並與 @RequestMapping 組合
      * produces 定義回傳的 Content-Type 為 application/json ，charset=UTF-8 用於解決回傳的資料中若有中文時的亂碼問題
