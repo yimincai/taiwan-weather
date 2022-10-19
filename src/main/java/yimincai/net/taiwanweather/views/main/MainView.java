@@ -69,12 +69,12 @@ public class MainView extends VerticalLayout {
         // 表格寬度與畫面等寬
         gridTable.setWidthFull();
         // 設定Column欄位
-        gridTable.addColumn(Forecast::getTime).setHeader("Time");
-        gridTable.addColumn(Forecast::getWx).setHeader("Wx");
-        gridTable.addColumn(Forecast::getPop).setHeader("PoP");
-        gridTable.addColumn(Forecast::getMinT).setHeader("MinT");
-        gridTable.addColumn(Forecast::getMaxT).setHeader("MaxT");
-        gridTable.addColumn(Forecast::getCi).setHeader("CI");
+        gridTable.addColumn(Forecast::getTime).setHeader("預報時段");
+        gridTable.addColumn(Forecast::getWx).setHeader("天氣現象");
+        gridTable.addColumn(Forecast::getPop).setHeader("降雨機率");
+        gridTable.addColumn(Forecast::getMinT).setHeader("最低溫度");
+        gridTable.addColumn(Forecast::getMaxT).setHeader("最高溫度");
+        gridTable.addColumn(Forecast::getCi).setHeader("舒適度");
         // 定義一個空的 Forecast List 並設定給表格 所以表格會是空的 並會顯示 Column 名稱
         List<Forecast> nullForecast = List.of();
         // 空的 Forecast List 放進 gridTable
